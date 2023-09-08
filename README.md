@@ -9,6 +9,6 @@ Source corpus data is available at https://huggingface.co/datasets/sulcan/TEXT_I
 
 ## Semantic Search Tool
 
-The model was trained with script [code/simcse_train.py](code/simcse_train.py)
+The model was trained with script [simcse_train.py](simcse_train.py)
 
 ## Assigned Topics
