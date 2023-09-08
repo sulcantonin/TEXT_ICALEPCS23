@@ -13,7 +13,7 @@ Source corpus data is available at https://huggingface.co/datasets/sulcan/TEXT_I
 ### SimCSE
 SimCSE finetuning https://arxiv.org/abs/2104.08821, partially based on sample script https://github.com/UKPLab/sentence-transformers/blob/master/examples/unsupervised_learning/SimCSE/train_simcse_from_file.py, trained on 
 #### Search
-Trained moddel shown in paper is [here](https://huggingface.co/sulcan/TEXT_ICALEPCS/tree/main/simcse)
+Trained moddel shown in available at [https://huggingface.co/sulcan/TEXT_ICALEPCS/tree/main/simcse](https://huggingface.co/sulcan/TEXT_ICALEPCS/tree/main/simcse)
 
 To search through all papers (abstracts):
 
