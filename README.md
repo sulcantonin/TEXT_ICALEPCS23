@@ -11,9 +11,19 @@ Source corpus data is available at https://huggingface.co/datasets/sulcan/TEXT_I
 ## Semantic Search Tool
 
 ### SimCSE
-SimCSE finetuning https://arxiv.org/abs/2104.08821, partially based on sample script https://github.com/UKPLab/sentence-transformers/blob/master/examples/unsupervised_learning/SimCSE/train_simcse_from_file.py, trained on 
+SimCSE finetuning https://arxiv.org/abs/2104.08821, partially based on sample script https://github.com/UKPLab/sentence-transformers/blob/master/examples/unsupervised_learning/SimCSE/train_simcse_from_file.py, trained our dataset
+
+To get the SimCSE pretrained weights, run following commands
+```bash
+# Make sure you have git-lfs installed (https://git-lfs.com)
+git lfs install
+git clone https://huggingface.co/sulcan/TEXT_ICALEPCS
+```
+
+
 #### Search
 Trained moddel shown in available at [https://huggingface.co/sulcan/TEXT_ICALEPCS/tree/main/simcse](https://huggingface.co/sulcan/TEXT_ICALEPCS/tree/main/simcse)
+
 
 To search through all papers (abstracts):
 
