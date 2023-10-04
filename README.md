@@ -11,7 +11,7 @@ To download data and trained models, run following commands
 # Make sure you have git-lfs installed (https://git-lfs.com)
 git lfs install
 git clone https://huggingface.co/sulcan/TEXT_ICALEPCS
-```bash
+```
 
 To load the downloaded dataset, you need an English word dictionary (*words_alpha.txt*) and *gzip* and *pickle* libraries to open the *text_public.pickle.gzip* file. We mostly work with abstracts, which can be extracted via function *core.get_abstracts*
 
