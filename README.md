@@ -10,9 +10,14 @@ Source corpus data is available at https://huggingface.co/datasets/sulcan/TEXT_I
 
 ```bash
 import pickle, gzip, core
+
+# English dictionary, to eventually eliminate badly readable pdfs
+with open('words_alpha.txt', 'r') as f:
+         EN = f.read().split('\n')
+
 with gzip.open('TEXT_ICALEPCS23/text_public.pickle.gzip','rb') as f:
          data = pickle.load(f)
-         abstracts = core.get_abstracts(data)
+         abstracts = core.get_abstracts(data,EN)
 ```
 
 ## Semantic Search Tool
@@ -29,7 +34,7 @@ git clone https://huggingface.co/sulcan/TEXT_ICALEPCS
 
 You need following Python libraries 
 ```bash
-pip install sentence_transformers==2.2.2 gensim==4.1.2
+pip install sentence_transformers==2.2.2 gensim==4.1.2 nltk==3.6.7
 ```
 
 #### Search
@@ -61,7 +66,7 @@ Word embedding for all unique tokens was found with [Gensim 4.1.2](https://githu
 
 To search through all papers (abstracts):
 ```python
-TBD
+
 ```
 
 ## Topics
