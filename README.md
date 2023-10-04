@@ -8,6 +8,13 @@ Keywords: research trends, search, conference proceedings, natural language proc
 
 Source corpus data is available at https://huggingface.co/datasets/sulcan/TEXT_ICALEPCS23
 
+```bash
+import pickle, gzip, core
+with gzip.open('TEXT_ICALEPCS23/text_public.pickle.gzip','rb') as f:
+         data = pickle.load(f)
+         abstracts = core.get_abstracts(data)
+```
+
 ## Semantic Search Tool
 
 ### SimCSE
