@@ -6,9 +6,16 @@ Keywords: research trends, search, conference proceedings, natural language proc
 
 ## Data
 
-Source corpus data is available at https://huggingface.co/datasets/sulcan/TEXT_ICALEPCS23
-
+To download data and trained models, run following commands
 ```bash
+# Make sure you have git-lfs installed (https://git-lfs.com)
+git lfs install
+git clone https://huggingface.co/sulcan/TEXT_ICALEPCS
+```bash
+
+To load the downloaded dataset, you need an English word dictionary (*words_alpha.txt*) and *gzip* and *pickle* libraries to open the *text_public.pickle.gzip* file. We mostly work with abstracts, which can be extracted via function *core.get_abstracts*
+
+```python
 import pickle, gzip, core
 
 # English dictionary, to eventually eliminate badly readable pdfs
@@ -22,25 +29,19 @@ with gzip.open('TEXT_ICALEPCS23/text_public.pickle.gzip','rb') as f:
 
 ## Semantic Search Tool
 
-### SimCSE
-SimCSE finetuning https://arxiv.org/abs/2104.08821, partially based on sample script https://github.com/UKPLab/sentence-transformers/blob/master/examples/unsupervised_learning/SimCSE/train_simcse_from_file.py, trained our dataset
-
-To get the SimCSE pretrained weights, run following commands
-```bash
-# Make sure you have git-lfs installed (https://git-lfs.com)
-git lfs install
-git clone https://huggingface.co/sulcan/TEXT_ICALEPCS
-```
-
 You need following Python libraries 
 ```bash
 pip install sentence_transformers==2.2.2 gensim==4.1.2 nltk==3.6.7
 ```
 
-#### Search
-Trained moddel shown in available at [https://huggingface.co/sulcan/TEXT_ICALEPCS/tree/main/simcse](https://huggingface.co/sulcan/TEXT_ICALEPCS/tree/main/simcse)
 
-To search through all papers (abstracts):
+### SimCSE
+SimCSE finetuning https://arxiv.org/abs/2104.08821.
+
+Source code is partially based on sample script https://github.com/UKPLab/sentence-transformers/blob/master/examples/unsupervised_learning/SimCSE/train_simcse_from_file.py
+
+#### Search
+Simple demo from the paper
 
 ```python
 # loads library
@@ -57,6 +58,7 @@ texts = ["DESY radio frequency cavities detuned.",
 e = model.encode(texts)
 print(e.shape) # (5, 768)
 ```
+You can replace texts variable with arbitrary content, e.g. abstracts. 
 
 #### Fine-Tuning
 The model was trained with script [simcse_train.py](simcse_train.py), see paper for exact parameters. 
