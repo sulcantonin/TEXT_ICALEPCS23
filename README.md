@@ -20,15 +20,30 @@ git lfs install
 git clone https://huggingface.co/sulcan/TEXT_ICALEPCS
 ```
 
+You need following Python libraries 
+```bash
+pip install sentence_transformers==2.2.2 gensim==4.1.2
+```
 
 #### Search
 Trained moddel shown in available at [https://huggingface.co/sulcan/TEXT_ICALEPCS/tree/main/simcse](https://huggingface.co/sulcan/TEXT_ICALEPCS/tree/main/simcse)
 
-
 To search through all papers (abstracts):
 
 ```python
-TBD
+# loads library
+from sentence_transformers import SentenceTransformer
+# loads the model weights
+model = SentenceTransformer('TEXT_ICALEPCS/simcse')
+# sample texts from paper
+texts = ["DESY radio frequency cavities detuned.",
+         "XFEL cavities detuned.",
+         "My teeth have frequent cavities.",
+         "Please tune radio at low frequency.",
+         "DESY is following a radio at low volumes."]
+# sentences transformed to the embedding
+e = model.encode(texts)
+print(e.shape) # (5, 768)
 ```
 
 #### Fine-Tuning
