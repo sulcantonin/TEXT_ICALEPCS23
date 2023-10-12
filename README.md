@@ -75,7 +75,8 @@ To search through all papers (abstracts):
 ```
 
 ## Topics
-TBD
+Entire script including the logic used for generating figures in paper is in [topic.ipynb](topic.ipynb)
+
 ## Knowledge Extraction
 TBD
 ### Citation Graph
